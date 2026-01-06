@@ -14,20 +14,20 @@
         <form>
             <div class="amount">
                 <p>Enter Amount</p>
-                <input value="1" type="text">
+                <input value="1" type="text" id="amount">
             </div>
     
             <div class="currency-container">
                 <div class="from">
                     <p>From</p>
                     <div class="select-container">
-                        <img src="https://flagsapi.com/US/flat/64.png">
-                        <select>
-                            <option value="USD">USD</option>
+                        <img id="fromImg" src="https://flagsapi.com/US/flat/64.png">
+                        <select name="from">
+                            <!-- <option value="USD">USD</option>
                             <option value="BDT">BDT</option>
                             <option value="AUD">AUD</option>
                             <option value="EUR">EUR</option>
-                            <option value="BTC">BTC</option>
+                            <option value="BTC">BTC</option> -->
                         </select>
                     </div>
                 </div>
@@ -35,13 +35,13 @@
                 <div class="to">
                     <p>To</p>
                     <div class="select-container">
-                        <img src="https://flagsapi.com/BD/flat/64.png">
-                        <select>
-                            <option value="USD">USD</option>
+                        <img id="toImg" src="https://flagsapi.com/BD/flat/64.png">
+                        <select name="to">
+                            <!-- <option value="USD">USD</option>
                             <option value="BDT" selected>BDT</option>
                             <option value="AUD">AUD</option>
                             <option value="EUR">EUR</option>
-                            <option value="BTC">BTC</option>
+                            <option value="BTC">BTC</option> -->
                         </select>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
         </form>
     </div>
 
-    <script src="app.js"></script>
     <script src="code.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
