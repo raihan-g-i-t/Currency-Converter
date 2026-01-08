@@ -1,7 +1,10 @@
-const base_url = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
+const base_url = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 const selects = document.querySelectorAll(".select-container select");
-let fromImg = document.querySelector("#fromImg");
 const fromSelect = document.querySelector('.select-container select[name="from"]');
+const btn = document.querySelector("form button");
+const fromCode = document.querySelector('.select-container select[name="from"]');
+const toCode = document.querySelector('.select-container select[name="to"]');
+
 // console.log(fromSelect);
 // console.log(fromImg.src);
 // console.log(selects);
@@ -38,6 +41,32 @@ let updateFlag = (element) => {
   let img = element.parentElement.querySelector("img");
   img.src = newSrc;
 }
+
+btn.addEventListener("click", async (evt) => {
+  evt.preventDefault();
+  let amount = document.querySelector(".amount input");
+  let amountValue = amount.value;
+  if(amountValue === "" || amountValue < 1){
+    amountValue = 1;
+    amount.value = "1";
+  }
+  
+  const URL = `${base_url}/${fromCode.value.toLowerCase()}.json`;
+
+  let toCurrCode = toCode.value.toLowerCase();
+  console.log(toCurrCode);
+  
+  const response = await fetch(URL);
+  const data = await response.json();
+  const toCurrencyVal = data.usd[toCurrCode];
+
+  console.log(toCurrencyVal);
+
+
+});
+
+
+
 // const data = async () => {
 //   const response = await fetch(base_url);
 //   const result = await response.json();
@@ -48,3 +77,4 @@ let updateFlag = (element) => {
 
 
 // data();
+
